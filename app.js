@@ -29,7 +29,7 @@ btn.addEventListener('click', () => {
 
 
 const displayJoke = async() => {
-
+    result.textContent = 'Loading...';
     const response = await fetch(url, {
         headers: { // think of header as info about our request
             Accept: 'application/json',
