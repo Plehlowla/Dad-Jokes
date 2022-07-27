@@ -39,12 +39,16 @@ const displayJoke = async() => {
             },
             
         });
+
+        if(!response.ok){
+            throw new Error('there was an error');
+        }
         
         const data = await response.json();
         result.textContent = data.joke;
 
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
         result.textContent = 'There was an error';
     }
 
