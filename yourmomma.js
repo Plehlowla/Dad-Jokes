@@ -16,21 +16,35 @@ btn2.addEventListener('click', () => {
 
 
 
-const mommaJoke = async() => {
+const mommaJoke = async () => {
 
-    const response2 = await fetch(momURL, {
-        headers: { // think of header as info about our request
-            Accept: 'application/json',
-            'User-Agent': 'udemy tutorial',
-            'Access-Control-Allow-Origin': '*',
-        },
+    try {
+        const response2 = await fetch('GET',momURL, {
+            headers: { // think of header as info about our request
+                Accept: 'application/json',
+                // 'Content-Type': 'application/json',
+                'User-Agent': 'Independent Developer',
+                // 'Access-Control-Allow-Origin': '*',
+            },
+            // body : JSON.stringify(result2),
+            
+        });
+    
+        // console.log(response2);
+        const data2 = await response2.json();
+    
+        result2.textContent = data2['joke'];
+        // console.log(result2.textContent)
         
-    });
+    } catch (error) {
+        console.log(error)
+    }
 
-    // console.log(response);
-    const data2 = await response2.json();
-
-    result2.textContent = data2.joke;
+    
 };
 
 mommaJoke(); // load joke when page is loaded...
+// console.log(result2)
+
+// window.onload = ()=> mommaJoke();
+// document.addEventListener('DOMContentLoaded', ()=> mommaJoke()); // load jokes on page loaded
