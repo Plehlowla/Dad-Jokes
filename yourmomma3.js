@@ -1,35 +1,41 @@
 // console.log('Dad Jokes Starter');
 
-const url = 'https://icanhazdadjoke.com/';
+const url22 = 'https://api.yomomma.info/';
 
 // https://api.yomomma.info/ 
 // you momma jokes
 
-const btn = document.querySelector('.btn');
-const result = document.querySelector('.result');
+const btn2 = document.querySelector('.btn2');
+const result2 = document.querySelector('.result2');
 
 // console.log(btn,result);
 
 // window.onload = ()=> displayJoke();
 // document.addEventListener('DOMContentLoaded', ()=> displayJoke()); // load jokes on page loaded
 
-btn.addEventListener('click', () => {
-    displayJoke();
+btn2.addEventListener('click', () => {
+    displayJoke2();
     // const response = await fetch(url);
     // const data = await response.json()
     // displayJoke(data);
 });
 
 
-
-const displayJoke = async() => {
-    result.textContent = 'Loading...';
-
+// let rebounce = false;
+const displayJoke2 = async() => {
+    result2.textContent = 'Loading...';
+    // rebounce = true;
+        // rebounce = true;
     try {
-        const response = await fetch(url, {
+        const response = await fetch(url22, {
             headers: { // think of header as info about our request
-                Accept: 'application/json',
-                'User-Agent': 'udemy tutorial',
+                Accept: 'text/plain',
+                // 'Content-Type': 'text/html',
+                'User-Agent': 'Independent Developer',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+                'Access-Control-Allow-Headers': 'X-PINGOTHER, Content-Type',
+                
             },
             
         });
@@ -39,12 +45,15 @@ const displayJoke = async() => {
         }
         
         const data = await response.json();
-        result.textContent = data.joke;
+        result2.textContent = data.index;
 
     } catch (error) {
         console.log(error.message);
-        result.textContent = 'There was an error';
+        result2.textContent = 'There was an error';
     }
+
+
+    // rebounce = false;
 
     // console.log(response);
 
@@ -56,4 +65,4 @@ const displayJoke = async() => {
     // return result.innerHTML = displayText
 };
 
-displayJoke(); // load joke when page is loaded...
+displayJoke2(); // load joke when page is loaded...

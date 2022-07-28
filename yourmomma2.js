@@ -19,13 +19,13 @@ btn.addEventListener('click', ()=> {
 
 const displayItems = (items) => {
     const displayData = items.map((item) => {
-        const {joke} = item;
+        const { joke } = item;
         return `<p>${joke}</p>`;
     }).join('');
     console.log(displayData)
 
     const result3 = document.querySelector('.result2');
-    result3.textContent = displayData;
+    result3.textContent = displayData.joke;
     document.body.appendChild(result3);
 
 }
